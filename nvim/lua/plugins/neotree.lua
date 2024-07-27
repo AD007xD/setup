@@ -9,5 +9,18 @@ return {
     },
     config = function()
         vim.keymap.set("n", "<leader>fs", ":Neotree float filesystem<CR>", {})
-    end,
+		require('neo-tree').setup({
+			filesystem = {
+				filtered_items = {
+					hide_dotfiles = false,
+					hide_gitignored = false,
+					never_show = {
+						"node_modules",
+						".git"
+					}
+				}
+			}
+
+		})
+     end,
 }
